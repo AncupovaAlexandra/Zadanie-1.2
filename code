@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace prakt_2_razvetvl_algoritmicheskie_struktur
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double[] mas = new double[3];
+            Console.Write("Первое число: ");
+            mas[0] = double.Parse(Console.ReadLine());
+            Console.Write("Второе число: ");
+            mas[1] = double.Parse(Console.ReadLine());
+            Console.Write("Третье число: ");
+            mas[2] = double.Parse(Console.ReadLine());
+ 
+            double min = double.MaxValue;
+            double max = double.MinValue;
+            double firstMax = 0, secondMax = 0;
+            double firstMin = 0, secondMin = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (i == j) continue;
+                    else
+                    {
+                        if (Math.Abs(mas[i] - mas[j]) > max)
+                        {
+                            max = Math.Abs(mas[i] - mas[j]);
+                            firstMax = mas[i];
+                            secondMax = mas[j];
+                        }
+                        if (Math.Abs(mas[i] - mas[j]) < min)
+                        {
+                            min = Math.Abs(mas[i] - mas[j]);
+                            firstMin = mas[i];
+                            secondMin = mas[j];
+                        }
+                    }
+                }
+            }
+            Console.WriteLine("Максимум: {0}, числа: {1}, {2}", max, firstMax, secondMax);
+            Console.WriteLine("Минимум: {0}, числа: {1}, {2}", min, firstMin, secondMin);
+            Console.ReadKey();
+        
+        }
+    }
+}
